@@ -3,7 +3,7 @@
 @mixin for-tablet-up
 	@media (min-width: 649px){@content;}
 @mixin for-laptop-up
-	@media (min-width: 769px){@content;}
+	@media (min-width: 1280px){@content;}
 
 @font-face
 	font-family: "Vida31pro";
@@ -30,9 +30,9 @@ div.wrapper
 	font-weight: 400;
 	color: $main-color;
 	margin: 0 auto;
-	min-width: 648px;
 	overflow: hidden;
 	z-index: 0;
+	min-width: 648px;
 	@include for-tablet-up
 		min-width: 768px;
 	@include for-laptop-up
@@ -43,6 +43,7 @@ header
 	padding: 35px 40px;
 	img.logo
 		float: left;
+		height: 40px;
 		margin-right: 10px;
 div.laptop-header
 	display: none;
@@ -52,7 +53,7 @@ div.header-wrap
 	display: flex;
 	justify-content: space-between;
 nav.header-nav
-	margin-top: 15px;
+	margin-top: 10px;
 	a.header-nav-link
 		margin: 0 8px;
 		color: $tittle-color;
@@ -63,7 +64,7 @@ nav.header-nav
 div.header-links
 	display: flex;
 a.header-link-compare
-	margin-top: 15px;
+	margin-top: 10px;
 	position: relative;
 	text-decoration: none;
 	img.btn
@@ -87,7 +88,7 @@ a.header-link-compare
 		font-size: 0.875em;
 a.header-link-account
 	margin: 0 20px;
-	margin-top: 10px;
+	margin-top: 5px;
 	height: 23px;
 	border: 1px solid #cfcfcf;
 	border-radius: 28px;
@@ -105,7 +106,7 @@ a.header-link-account
 		vertical-align: middle;
 
 a.header-link-contact
-	margin-top: 15px;
+	margin-top: 10px;
 	font-size: 1.125em;
 	font-weight: bold;
 	text-decoration: none;
@@ -147,6 +148,99 @@ div.tablet-header
 		margin-top: 14px;
 		margin-left: 30px;
 
+	/*hidden menu*/
+
+div.hidden-menu
+	visibility: hidden;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	padding: 35px 40px;
+	box-sizing: border-box;
+	z-index: 1;
+	background: #ffffff;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	min-width: 648px;
+	@include for-tablet-up
+		min-width: 768px;
+	@include for-laptop-up
+		display: none;
+	.hidden-logo
+		height: 40px;
+	.hidden-menu-header
+		display: flex;
+		justify-content: space-between;
+		button.close-menu
+			width: 32px;
+			height: 33px;
+			background: url("../img/cross.png");
+			border: none;
+			outline: none;
+			margin-top: 5px;
+	.hidden-menu-content
+		margin: 20px 0;
+		font-size: 1.5em;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+	.hidden-menu-nav
+		margin-bottom: 30px;
+	.hidden-menu-link
+		display: block;
+		margin: 10px 0;
+		color: $tittle-color;
+		text-decoration: none;
+	.hidden-menu-link:hover
+		text-decoration: underline;
+	.hidden-menu-links
+		margin-top: 30px;
+		position: relative;
+		.hidden-link-compare
+			display: block;
+			position: relative;
+			text-decoration: none;
+			margin-bottom: 30px;
+			img.btn
+				width: 20px;
+				height: 15px;
+			span.counter
+				background: $tittle-color;
+				border-radius: 50%;
+				font-size: 0.688em;
+				color: #ffffff;
+				width: 15px;
+				height: 20px;
+				padding-left: 6px;
+				padding-top: 2px;
+				position: absolute;
+				top: -10px;
+				left: 10px;
+			span.badge
+				margin-left: 10px;
+				color: $tittle-color;
+				font-size: 0.875em;
+		.hidden-link-account
+			display: block;
+			margin-bottom: 30px;
+			color: $tittle-color;
+			text-decoration: none;
+		.hidden-link-account:hover
+			text-decoration: underline;
+		.hidden-link-contact
+			font-weight: bold;
+			text-decoration: none;
+			color: $main-color;
+		div.animation
+			position: absolute;
+			top: 102px;
+			left: 200px;
+
+	/*end hidden menu*/
+
 /* end header style*/
 
 /*banner style*/
@@ -160,6 +254,8 @@ div.banner
 		position: absolute;
 		left: 93px;
 		bottom: 0;
+		@include for-phone-only
+			display: none;
 	h2
 		background: #ffffff;
 		font-size: 1.125em;
